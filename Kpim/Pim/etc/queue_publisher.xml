@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/publisher.xsd">
+    <publisher topic="k.products.updated">
+        <connection name="amqp" exchange="k.products.updated" />
+    </publisher>
+    <publisher topic="k.product.update">
+        <connection name="amqp" exchange="k.product.update" />
+    </publisher>
+</config>

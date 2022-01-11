@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Kpim\Integration\Api\Data\ProductInformationInterface"
+                type="Kpim\Pim\Model\ProductInformation"/>
+
+    <preference for="Kpim\Integration\Api\UpdateProductsInformationEndpointInterface"
+                type="Kpim\Pim\Operation\Endpoint\UpdateProductsInformation"/>
+
+    <preference for="Kpim\Pim\Api\ProductUpdatePublisherInterface"
+                type="Kpim\Pim\Model\ProductUpdatePublisher"/>
+
+    <preference for="Kpim\Pim\Api\ProductsUpdatedPublisherInterface"
+                type="Kpim\Pim\Model\ProductsUpdatedPublisher"/>
+
+    <preference for="Kpim\Integration\Api\UpdateProductInformationServiceInterface"
+                type="Kpim\Pim\Service\UpdateProductInformationService"/>
+
+    <preference for="Kpim\Integration\Api\NotifyAboutLatestUpdatedProductsServiceInterface"
+                type="Kpim\Pim\Service\NotifyAboutLatestUpdatedProductsService"/>
+
+    <preference for="Kpim\Integration\Api\NotifyAboutProductUpdateServiceInterface"
+                type="Kpim\Pim\Service\NotifyAboutProductUpdateService"/>
+</config>

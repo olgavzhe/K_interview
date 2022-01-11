@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/topology.xsd">
+    <exchange name="k.product.update" type="topic" connection="amqp">
+        <binding id="KProductUpdate" topic="k.product.update" destinationType="queue" destination="k.product.update"/>
+    </exchange>
+    <exchange name="k.products.updated" type="topic" connection="amqp">
+        <binding id="KProductsUpdated" topic="k.products.updated" destinationType="queue"
+                 destination="k.products.updated"/>
+    </exchange>
+</config>
