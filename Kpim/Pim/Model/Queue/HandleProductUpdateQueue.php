@@ -5,6 +5,7 @@ namespace Kpim\Pim\Model\Queue;
 
 use Kpim\Integration\Api\Data\ProductInformationInterface;
 use Kpim\Integration\Api\UpdateProductInformationServiceInterface;
+use Kpim\Integration\Api\NotifyAboutProductUpdateServiceInterface;
 
 class HandleProductUpdateQueue
 {
@@ -14,11 +15,18 @@ class HandleProductUpdateQueue
      */
     private $updateProductInformationService;
 
+    /**
+     * @var NotifyAboutProductUpdateServiceInterface
+     */
+    private $notifyAboutProductUpdateService;
+
     public function __construct(
-        UpdateProductInformationServiceInterface $updateProductInformationService
+        UpdateProductInformationServiceInterface $updateProductInformationService,
+        NotifyAboutProductUpdateServiceInterface $notifyAboutProductUpdateService
     )
     {
         $this->updateProductInformationService = $updateProductInformationService;
+        $this->notifyAboutProductUpdateService = $notifyAboutProductUpdateService;
     }
 
     public function process(ProductInformationInterface $productInformation): void
@@ -28,5 +36,7 @@ class HandleProductUpdateQueue
         /**
          * Handle the situation according to the save result if needed
          */
+
+        $this->notifyAboutProductUpdateService->execute($productInformation);
     }
 }
